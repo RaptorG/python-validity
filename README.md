@@ -5,12 +5,12 @@ Validity fingerprint sensor driver.
 
 On Ubuntu system:
 ```
-$ sudo apt remove fprintd
-$ sudo add-apt-repository ppa:uunicorn/open-fprintd
-$ sudo apt-get update
-$ sudo apt install open-fprintd fprintd-clients python3-validity
+sudo apt remove fprintd
+sudo add-apt-repository ppa:uunicorn/open-fprintd
+sudo apt-get update
+sudo apt install open-fprintd fprintd-clients python3-validity
 ...wait a bit...
-$ fprintd-enroll
+fprintd-enroll
 ```
 
 On Arch Linux
@@ -28,9 +28,9 @@ If it's not running, you can enable and/or start it by substituting `status` wit
 
 It `systemctl status python3-validity` complains about errors on startup, you may need to factory-reset the fingerprint chip. Do that like so:
 ```
-$ sudo systemctl stop python3-validity
-$ sudo validity-sensors-firmware
-$ sudo python3 /usr/share/python-validity/playground/factory-reset.py
+sudo systemctl stop python3-validity
+sudo validity-sensors-firmware
+sudo python3 /usr/share/python-validity/playground/factory-reset.py
 
 # At some of the above points you may get a 'device busy' error,
 # depending on how systemctl plays along. Kill offending processes if
@@ -38,8 +38,8 @@ $ sudo python3 /usr/share/python-validity/playground/factory-reset.py
 # in case it has automatically been restarted, or or kill other
 # offending processes.
 
-$ sudo systemctl start python3-validity
-$ fprintd-enroll
+sudo systemctl start python3-validity
+fprintd-enroll
 ```
 
 For even more error procedures, check [this Arch comment thread](https://aur.archlinux.org/packages/python-validity/#comment-755904) or [this python-validity bug comment thread](https://github.com/uunicorn/python-validity/issues/3).
@@ -47,7 +47,7 @@ For even more error procedures, check [this Arch comment thread](https://aur.arc
 ## Enabling fingerprint for system authentication
 To enable fingerprint login, if it doesn't come automatically, run
 ```
-$ sudo pam-auth-update
+sudo pam-auth-update
 ```
 and use the space-bar to enable fingerprint authentication.
 The change will take effect immediately. At this point, the fingerprint
